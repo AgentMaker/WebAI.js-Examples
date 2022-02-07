@@ -1,4 +1,6 @@
 # WebAI.js-Examples
+English | [中文版](./README_CN.md)
+
 ## 1. Introduction
 * This repo contains several webai.js examples
 
