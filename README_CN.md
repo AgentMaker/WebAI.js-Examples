@@ -45,6 +45,8 @@
 
     ```bash
     $ npm run dev
+
+    # 通过浏览器访问 http://localhost:3000 来查看和测试网页
     ```
 
 * 构建网页:
@@ -57,6 +59,8 @@
 
     ```bash
     $ npm run preview
+
+    # 通过浏览器访问 http://localhost:5000 来预览构建完成的网页
     ```
 
 * 构建网页至 '../docs' 目录中:

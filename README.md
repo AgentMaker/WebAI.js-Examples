@@ -45,6 +45,8 @@ English | [中文版](./README_CN.md)
 
     ```bash
     $ npm run dev
+
+    # Through the browser to http://localhost:3000 to check and test page
     ```
 
 * Build the web page:
@@ -57,6 +59,8 @@ English | [中文版](./README_CN.md)
 
     ```bash
     $ npm run preview
+
+    # Through the browser to http://localhost:5000 to preview the built page
     ```
 
 * Build the web page to the '../docs' directory:
