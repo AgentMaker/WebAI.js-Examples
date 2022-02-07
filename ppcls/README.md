@@ -116,27 +116,27 @@ English | [中文版](./README_CN.md)
 
 ## 5. Rapid deployment
 
-1. Clone this repo:
+1. Clone WebAI.js-Examples repo:
 
     ```bash
     $ git clone https://github.com/AgentMaker/WebAI.js-Examples
     ```
 
-2. Switch to the directory for the example, like './ppdet':
+2. Switch to the directory for the example:
 
     ```
-    $ cd ./ppdet
+    $ cd ./ppcls
     ```
 
 3. Edit the model path in the code:
 
     ```js
-    // ./ppdet/main.js
+    // main.js
     // model and configs file are best placed in the 'public' directory
 
     ...
-    const modelURL = './blazeface_1000e/model.onnx'
-    const modelConfig = './blazeface_1000e/configs.json'
+    const modelURL = [PATH TO MODEL]
+    const modelConfig = [PATH TO CONFIG] 
     ...
     ```
 

@@ -69,7 +69,7 @@
     * [WebAI 的体验网站](https://agentmaker.github.io/WebAI.js) 中包含一个配置文件转换生成器
 
     * 可通过这个程序快速将 PaddleClas 的配置文件转换为 WebAI.js 推理所需的配置文件
-    
+
     * 转换器目前仍在持续开发中，目前可能无法兼容所有 PaddleClas 的配置文件
 
 2. 手动编写配置文件，样例如下：
@@ -114,7 +114,7 @@
     ```
 
 ## 5. 快速部署
-1. 克隆项目：
+1. 克隆 WebAI.js-Examples 项目：
 
     ```bash
     $ git clone https://github.com/AgentMaker/WebAI.js-Examples
@@ -129,12 +129,12 @@
 3. 在代码中修改模型路径:
 
     ```js
-    // ./ppdet/main.js
+    // main.js
     // 模型和配置文件最好放置于 'public' 目录下
 
     ...
-    const modelURL = './blazeface_1000e/model.onnx'
-    const modelConfig = './blazeface_1000e/configs.json'
+    const modelURL = [模型文件路径]
+    const modelConfig = [配置文件路径] 
     ...
     ```
 

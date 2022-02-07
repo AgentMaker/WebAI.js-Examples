@@ -26,12 +26,12 @@
 * 在代码中修改模型路径:
 
     ```js
-    // ./ppdet/main.js
+    // main.js
     // 模型和配置文件最好放置于 'public' 目录下
 
     ...
-    const modelURL = './blazeface_1000e/model.onnx'
-    const modelConfig = './blazeface_1000e/configs.json'
+    const modelURL = [模型文件路径]
+    const modelConfig = [配置文件路径] 
     ...
     ```
 

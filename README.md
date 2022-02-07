@@ -26,12 +26,12 @@ English | [中文版](./README_CN.md)
 * Edit the model path in the code:
 
     ```js
-    // ./ppdet/main.js
+    // main.js
     // model and configs file are best placed in the 'public' directory
 
     ...
-    const modelURL = './blazeface_1000e/model.onnx'
-    const modelConfig = './blazeface_1000e/configs.json'
+    const modelURL = [PATH TO MODEL]
+    const modelConfig = [PATH TO CONFIG] 
     ...
     ```
 
