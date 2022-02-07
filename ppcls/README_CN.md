@@ -1,4 +1,5 @@
 # PaddleClas 模型导出和 WebAI.js 部署
+[English](./README.md) | 中文版
 
 ## 1. 介绍
 * 本教程将介绍如何使用 PaddleClas 套件导出推理模型并使用 WebAI.js 部署到网页前端
@@ -11,8 +12,10 @@
     ```
 
 ## 2. 导出 Paddle 推理模型
-* 推理脚本位于 PaddleClas/tools/export_model.py
-* 更多更详细的使用方法可参考 [PaddleClas 官方文档](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.3/docs/zh_CN/inference_deployment/export_model.md)
+* PaddleClas 的导出脚本位于 PaddleClas/tools/export_model.py
+
+* 更多详细的使用方法可参考 [PaddleClas 官方文档](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.3/docs/zh_CN/inference_deployment/export_model.md)
+
 * 作为演示，所以使用官方文档中提供的示例模型进行模型导出，具体步骤如下：
 
 1. 切换工作目录
@@ -40,7 +43,6 @@
     ```
 
 ## 3. 转换为 ONNX 模型
-
 1. 安装 Paddle2ONNX
 
     ```bash
@@ -65,7 +67,9 @@
 1. 使用配置文件转换器
 
     * [WebAI 的体验网站](https://agentmaker.github.io/WebAI.js) 中包含一个配置文件转换生成器
+
     * 可通过这个程序快速将 PaddleClas 的配置文件转换为 WebAI.js 推理所需的配置文件
+    
     * 转换器目前仍在持续开发中，目前可能无法兼容所有 PaddleClas 的配置文件
 
 2. 手动编写配置文件，样例如下：
