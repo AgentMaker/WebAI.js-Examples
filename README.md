@@ -27,7 +27,7 @@ English | [中文版](./README_CN.md)
 
     ```js
     // main.js
-    // model and configs file are best placed in the 'public' directory
+    // It is recommended that models and configuration files be placed in the 'public' directory, where files can be referenced using the path '/*'
 
     ...
     const modelURL = [PATH TO MODEL]
