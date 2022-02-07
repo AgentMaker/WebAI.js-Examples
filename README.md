@@ -4,9 +4,9 @@
 
     |Type|Example|
     |:-:|:-:|
-    |Detection|[PaddleDet](./ppdet)|
-    |Classification|[PaddlecClas](./ppcls)|
-    |Segmentation|[PaddleSeg](./ppseg)|
+    |Face Detection|[ppdet](./ppdet)|
+    |ImageNet Classification|[ppcls](./ppcls)|
+    |Human Segmentation|[ppseg](./ppseg)|
 
 ## 2. Usage
 * Clone this repo:
