@@ -1,0 +1,14 @@
+{
+  "name": "ppcls",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:docs": "vite build --outDir ../docs"
+  },
+  "devDependencies": {
+    "vite": "^2.7.2",
+    "webai-js": "~1.1.4"
+  }
+}
