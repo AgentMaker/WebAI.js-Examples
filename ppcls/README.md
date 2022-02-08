@@ -180,8 +180,8 @@ English | [中文版](./README_CN.md)
     // It is recommended that models and configuration files be placed in the 'public' directory, where files can be referenced using the path '/*'
 
     ...
-    const modelURL = [PATH TO MODEL]
-    const modelConfig = [PATH TO CONFIG] 
+    const modelURL = "/class_ResNet50_vd_ImageNet_infer/model.onnx"
+    const modelConfig = "/class_ResNet50_vd_ImageNet_infer/configs.json"
     ...
     ```
 

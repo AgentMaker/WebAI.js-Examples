@@ -178,8 +178,8 @@
     // 模型和配置文件建议放置于 'public' 目录下，使用路径 '/*' 即可以引用该目录中的文件
 
     ...
-    const modelURL = [模型文件路径]
-    const modelConfig = [配置文件路径] 
+    const modelURL = "/class_ResNet50_vd_ImageNet_infer/model.onnx"
+    const modelConfig = "/class_ResNet50_vd_ImageNet_infer/configs.json"
     ...
     ```
 
