@@ -1,5 +1,5 @@
 # PaddleClas 模型导出和 WebAI.js 部署
-中文版 | [English](./README.md)
+中文版 | [English](./README_EN.md)
 
 ## 1. 介绍
 * 本教程将介绍如何使用 PaddleClas 套件导出推理模型并使用 WebAI.js 部署到网页前端
