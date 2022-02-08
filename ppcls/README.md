@@ -73,6 +73,51 @@ English | [中文版](./README_CN.md)
 
     * The converter is currently under continuous development and may not be compatible with all PaddleClas configuration files at this time
 
+    * The default PaddleClas inference configuration file is located at PaddleClas/deploy/configs/inference_cls.yaml
+
+    * The content of [the default configuration file](./public/pplcnet_x0_25_imagenet/configs.json) after conversion is as follows :
+
+        ```json
+        // configs.json
+        {
+            "Preprocess": [
+                {
+                    "type": "Decode",
+                    "mode": "RGB"
+                },
+                {
+                    "type": "Resize",
+                    "interp": 1,
+                    "keep_ratio": true,
+                    "limit_max": false,
+                    "target_size": [256, 256]
+                },
+                {
+                    "type": "Crop",
+                    "crop_size": [224, 224]
+                },
+                {
+                    "type": "Normalize",
+                    "is_scale": true,
+                    "mean": [0.485, 0.456, 0.406],
+                    "std": [0.229, 0.224, 0.225]
+                },
+                {
+                    "type": "Permute"
+                }
+            ],
+            "label_list": [
+                "0 tench, Tinca tinca",
+                "1 goldfish, Carassius auratus",
+                "2 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias",
+                "...",
+                "997 bolete",
+                "998 ear, spike, capitulum",
+                "999 toilet tissue, toilet paper, bathroom tissue"
+            ]
+        }
+        ```
+
 2. Write a configuration file manually, for example:
 
     ```json

@@ -72,6 +72,51 @@
 
     * 转换器目前仍在持续开发中，目前可能无法兼容所有 PaddleClas 的配置文件
 
+    * 默认的 PaddleClas 推理配置文件位于 PaddleClas/deploy/configs/inference_cls.yaml
+
+    * 转换后的 [默认配置文件](./public/pplcnet_x0_25_imagenet/configs.json) 内容如下：
+
+        ```json
+        // configs.json
+        {
+            "Preprocess": [
+                {
+                    "type": "Decode",
+                    "mode": "RGB"
+                },
+                {
+                    "type": "Resize",
+                    "interp": 1,
+                    "keep_ratio": true,
+                    "limit_max": false,
+                    "target_size": [256, 256]
+                },
+                {
+                    "type": "Crop",
+                    "crop_size": [224, 224]
+                },
+                {
+                    "type": "Normalize",
+                    "is_scale": true,
+                    "mean": [0.485, 0.456, 0.406],
+                    "std": [0.229, 0.224, 0.225]
+                },
+                {
+                    "type": "Permute"
+                }
+            ],
+            "label_list": [
+                "0 tench, Tinca tinca",
+                "1 goldfish, Carassius auratus",
+                "2 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias",
+                "...",
+                "997 bolete",
+                "998 ear, spike, capitulum",
+                "999 toilet tissue, toilet paper, bathroom tissue"
+            ]
+        }
+        ```
+
 2. 手动编写配置文件，样例如下：
 
     ```json
