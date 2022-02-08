@@ -1,39 +1,39 @@
-# PaddleClas model export and WebAI.js deployment
-English | [中文版](./README_CN.md)
+# PaddleClas 模型导出和 WebAI.js 部署
+中文版 | [English](./README.md)
 
-## 1. Introduction
-* This tutorial will cover how to export inference model using the PaddleClas toolkit and deploy it to web using WebAI.js
+## 1. 介绍
+* 本教程将介绍如何使用 PaddleClas 套件导出推理模型并使用 WebAI.js 部署到网页前端
 
-## 2. Clone the repo
-* Clone the PaddleClas repo
+## 2. 同步代码
+* 克隆 PaddleClas 代码
 
     ```bash
     $ git clone https://github.com/PaddlePaddle/PaddleClas --depth 1
     ```
 
-## 2. Export Paddle inference model
-* The PaddleClas export script is located at PaddleClas/tools/export_model.py
+## 2. 导出 Paddle 推理模型
+* PaddleClas 的导出脚本位于 PaddleClas/tools/export_model.py
 
-* For more detailed usage, please refer to [PaddleClas official documentation](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.3/docs/en/inference_deployment/export_model_en.md)
+* 更多详细的使用方法可参考 [PaddleClas 官方文档](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.3/docs/zh_CN/inference_deployment/export_model.md)
 
-* As a demonstration, use the sample model provided in the official documentation for model export. The steps are as follows:
+* 作为演示，所以使用官方文档中提供的示例模型进行模型导出，具体步骤如下：
 
-1. Switch to the working directory:
+1. 切换工作目录
 
     ```bash
     $ cd ./PaddleClas
     ```
 
-2. Download the official ResNet50 pretrained model:
+2. 下载官方提供的 ResNet50 预训练模型
 
     ```bash
     $ wget -P ./cls_pretrain/ https://paddle-imagenet-models-name.bj.bcebos.com/dygraph/legendary_models/ResNet50_vd_pretrained.pdparams
     ```
 
-3. Export Paddle inference model
+3. 导出 Paddle 格式的推理模型
 
     ```bash
-    # When using scripts, you specify the configuration file, pre-training model, save directory, and currently running device type of the model through command line parameters
+    # 使用脚本时通过命令行参数指定模型的配置文件、预训练模型、保存目录和当前运行的设备类型
 
     $ python tools/export_model.py \
         -c ./ppcls/configs/ImageNet/ResNet/ResNet50_vd.yaml \
@@ -42,18 +42,17 @@ English | [中文版](./README_CN.md)
         -o Global.device=cpu
     ```
 
-## 3. Convert to the ONNX model
-
-1. Install Paddle2ONNX
+## 3. 转换为 ONNX 模型
+1. 安装 Paddle2ONNX
 
     ```bash
     $ pip install paddle2onnx
     ```
 
-2. Convert to the ONNX model
+2. 模型转换
 
     ```bash
-    # When used, specify the model path, model file name, parameter file name, save file path, and version of the ONNX operator set for the Paddle inference model with command line arguments
+    # 使用时通过命令行参数指定 Paddle 推理模型的模型路径、模型文件名、参数文件名、保存文件路径和 ONNX 算子集的版本
 
     $ paddle2onnx \
         --model_dir=./deploy/models/class_ResNet50_vd_ImageNet_infer \
@@ -63,19 +62,19 @@ English | [中文版](./README_CN.md)
         --opset_version=12
     ```
 
-## 4. Generating a configuration file
+## 4. 生成配置文件
 
-1. Use the configuration converter
+1. 使用配置文件转换器
 
-    * [WebAI's experience site](https://agentmaker.github.io/WebAI.js) includes a configuration converter
+    * [WebAI 的体验网站](https://agentmaker.github.io/WebAI.js) 中包含一个配置文件转换生成器
 
-    * This program can be used to quickly convert PaddleClas configuration files to the required configuration files for webai.js reasoning
+    * 可通过这个程序快速将 PaddleClas 的配置文件转换为 WebAI.js 推理所需的配置文件
 
-    * The converter is currently under continuous development and may not be compatible with all PaddleClas configuration files at this time
+    * 转换器目前仍在持续开发中，目前可能无法兼容所有 PaddleClas 的配置文件
 
-    * The default PaddleClas inference configuration file is located at PaddleClas/deploy/configs/inference_cls.yaml
+    * 默认的 PaddleClas 推理配置文件位于 PaddleClas/deploy/configs/inference_cls.yaml
 
-    * The content of [the default configuration file](./public/pplcnet_x0_25_imagenet/configs.json) after conversion is as follows :
+    * 转换后的 [默认配置文件](./public/pplcnet_x0_25_imagenet/configs.json) 内容如下：
 
         ```json
         // configs.json
@@ -118,66 +117,65 @@ English | [中文版](./README_CN.md)
         }
         ```
 
-2. Write a configuration file manually, for example:
+2. 手动编写配置文件，样例如下：
 
     ```json
     // configs.json
     {
         "Preprocess": [
             {
-                "type": "Decode", // Image Decode
-                "mode": "RGB" // RGB or BGR
+                "type": "Decode", // 图像解码
+                "mode": "RGB" // RGB 或 BGR
             },
             {
-                "type": "Resize", //  Image Resize
-                "interp": 1, // Interpolation method
-                "keep_ratio": false, // Whether to keep the aspect ratio
-                "limit_max": false, // Whether to limit the max size of image
-                "target_size": [300, 300] // Target size [H, W]
+                "type": "Resize", //  图像缩放
+                "interp": 1, // 插值方式
+                "keep_ratio": false, // 保持长宽比
+                "limit_max": false, // 限制图片的最大尺寸
+                "target_size": [300, 300] // 目标尺寸 [H, W]
             },
             /*
             {
-                "type": "Crop", // Image Center Crop
-                "crop_size": [224, 224] // Crop size [H, W]
+                "type": "Crop", // 图像中心裁切
+                "crop_size": [224, 224] // 目标尺寸 [H, W]
             },
             */
             {
-                "type": "Normalize", // Normalize
-                "is_scale": false, // Whether to scale the image (img /= 255.0)
-                "mean": [127.5, 127.5, 127.5], // Mean of normalize
-                "std": [127.5, 127.5, 127.5] // Std of normalize
+                "type": "Normalize", // 归一化
+                "is_scale": false, // 是否缩放 (img /= 255.0)
+                "mean": [127.5, 127.5, 127.5], // 均值
+                "std": [127.5, 127.5, 127.5] // 标准差
             },
             {
-                "type": "Permute" // permute (HWC -> CHW)
+                "type": "Permute" // 转置 (HWC -> CHW)
             }
         ],
         "label_list": [
             "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", 
             "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", 
             "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"
-        ] // Label list
+        ] // 标签列表
     }
     ```
 
-## 5. Rapid deployment
-
-1. Clone WebAI.js-Examples repo:
+## 5. 快速部署
+1. 克隆 WebAI.js-Examples 项目：
 
     ```bash
     $ git clone https://github.com/AgentMaker/WebAI.js-Examples
     ```
 
-2. Switch to the directory for the example:
+2. 切换至示例目录：
 
     ```
     $ cd ./ppcls
     ```
 
-3. Edit the model path in the code:
+3. 在代码中修改模型路径:
 
     ```js
     // main.js
-    // It is recommended that models and configuration files be placed in the 'public' directory, where files can be referenced using the path '/*'
+    // 模型和配置文件建议放置于 'public' 目录下，使用路径 '/*' 即可以引用该目录中的文件
 
     ...
     const modelURL = "/class_ResNet50_vd_ImageNet_infer/model.onnx"
@@ -185,48 +183,48 @@ English | [中文版](./README_CN.md)
     ...
     ```
 
-4. Install dependencies:
+4. 安装依赖:
 
     ```bash
     $ npm install
     ```
 
-5. Develop the web page:
+5. 开发网页:
 
     ```bash
     $ npm run dev
 
-    # Through the browser to http://localhost:3000 to check and test page
+    # 通过浏览器访问 http://localhost:3000 来查看和测试网页
     ```
 
-6. Build the web page:
+6. 构建网页:
 
     ```bash
     $ npm run build
     ```
 
-7. Preview the built web page:
+7. 预览构建完成的网页:
 
     ```bash
     $ npm run preview
 
-    # Through the browser to http://localhost:5000 to preview the built page
+    # 通过浏览器访问 http://localhost:5000 来预览构建完成的网页
     ```
 
-8. Build the web page to the '../docs' directory:
+8. 构建网页至 '../docs' 目录中:
 
     ```bash
     $ npm run build:docs
     ```
 
-9. Deploy the web page to the Github/Gitee Page:
+9. 部署网页至 Github/Gitee Page:
 
-    1. fork the repo
+    1. fork 这个项目
 
-    2. Complete web page development
+    2. 完成网页开发
 
-    3. Build the web page to the '../docs' directory
+    3. 构建网页至 '../docs' 目录中
 
-    4. Enable the repo Page function
+    4. 启用项目的 Page 功能
 
-    5. set 'docs' as the source of the Page function
+    5. 设置 '../docs' 目录为 Page 功能的源目录
