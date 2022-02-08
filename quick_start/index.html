@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebAI.js PaddleDet Example</title>
+</head>
+<body>
+    <div>
+        Image:
+        <input type="file" accept="image/*" id="inputFile" disabled='true'>
+    </div>
+    <div>
+        <img src="" alt="" id="imgDom" style="display: none">
+        <canvas id='canvasDom'></canvas>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/webai-js/dist/webai.min.js'></script>
+
+    <script>
+    const imgDom = document.getElementById('imgDom')
+    const canvasDom = document.getElementById('canvasDom')
+    const inputFile = document.getElementById('inputFile')
+
+    const modelURL = './blazeface_1000e/model.onnx'
+    const modelConfig = './blazeface_1000e/configs.json'
+
+    window.onload = async function (e) {
+        window.model = await WebAI.Det.create(modelURL, modelConfig)
+
+        inputFile.disabled = false
+    }
+
+    inputFile.onchange = function (e) {
+        if (e.target.files[0]) {
+            imgDom.src = URL.createObjectURL(e.target.files[0])
+        }
+    }
+
+    imgDom.onload = async function (e) {
+        let imgRGBA = cv.imread(imgDom)
+
+        let bboxes = await model.infer(imgRGBA)
+
+        let imgShow = await WebAI.drawBBoxes(imgRGBA, bboxes)
+
+        cv.imshow(canvasDom, imgShow)
+
+        imgRGBA.delete()
+        imgShow.delete()
+    }
+    </script>
+</body>
+</html>
