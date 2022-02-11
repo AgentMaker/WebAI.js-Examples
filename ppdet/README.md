@@ -185,3 +185,8 @@
     4. 启用项目的 Page 功能
 
     5. 设置 '../docs' 目录为 Page 功能的源目录
+
+## 6. 网页预览
+* 部署完成的网页预览图如下：
+
+    ![](https://ai-studio-static-online.cdn.bcebos.com/85a139fb6502485e82bbe1325ebda34329ceae2270ed4fc3a98475f45a1e38d8)
