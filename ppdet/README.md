@@ -124,11 +124,48 @@
 
 2. 切换至示例目录：
 
-    ```
+    ```bash
     $ cd ./ppdet
     ```
 
-3. 在代码中修改模型路径:
+3. 目录结构：
+
+    ```yaml
+    - public # 服务器公开目录
+      - blazeface_1000e # 模型文件目录
+        - configs.json # 配置文件
+        - model.onnx # 模型文件
+    - index.html # 网页
+    - main.js # 功能代码
+    - package.json # 项目配置文件
+    ```
+
+4. 项目详情：
+    * 网页中包含如下几个简单组件：
+
+        * 图像上传按钮：用于上传图像
+
+        * 隐藏图像：用于读取图像
+
+        * 画布：用于显示检测结果图像
+
+        * 功能代码：用于实现功能
+
+    * 网页功能：
+
+        1. 加载目标检测模型
+
+        2. 对上传的图像进行目标检测
+
+        3. 将检测结果图像输出显示至网页中
+
+    * 网页预览：
+
+        ![](https://ai-studio-static-online.cdn.bcebos.com/85a139fb6502485e82bbe1325ebda34329ceae2270ed4fc3a98475f45a1e38d8)
+    
+    * 更多详情请参考代码实现：[index.html](index.html) / [main.js](main.js)
+
+5. 在代码中修改模型路径:
 
     ```js
     // main.js
@@ -140,13 +177,13 @@
     ...
     ```
 
-4. 安装依赖:
+6. 安装依赖:
 
     ```bash
     $ npm install
     ```
 
-5. 开发网页:
+7. 开发网页:
 
     ```bash
     $ npm run dev
@@ -154,13 +191,13 @@
     # 通过浏览器访问 http://localhost:3000 来查看和测试网页
     ```
 
-6. 构建网页:
+8. 构建网页:
 
     ```bash
     $ npm run build
     ```
 
-7. 预览构建完成的网页:
+9. 预览构建完成的网页:
 
     ```bash
     $ npm run preview
@@ -168,13 +205,13 @@
     # 通过浏览器访问 http://localhost:5000 来预览构建完成的网页
     ```
 
-8. 构建网页至 '../docs' 目录中:
+10. 构建网页至 '../docs' 目录中:
 
     ```bash
     $ npm run build:docs
     ```
 
-9. 部署网页至 Github/Gitee Page:
+11. 部署网页至 Github/Gitee Page:
 
     1. fork 这个项目
 
@@ -185,8 +222,3 @@
     4. 启用项目的 Page 功能
 
     5. 设置 '../docs' 目录为 Page 功能的源目录
-
-## 6. 网页预览
-* 部署完成的网页预览图如下：
-
-    ![](https://ai-studio-static-online.cdn.bcebos.com/85a139fb6502485e82bbe1325ebda34329ceae2270ed4fc3a98475f45a1e38d8)
