@@ -4,13 +4,6 @@
 ## 1. 介绍
 * 本教程将介绍如何使用 PaddleDetection 套件导出推理模型并使用 WebAI.js 部署到网页前端
 
-## 2. 同步代码
-* 克隆 PaddleDetection 代码
-
-    ```bash
-    $ git clone https://github.com/PaddlePaddle/PaddleDetection --depth 1
-    ```
-
 ## 2. 导出 Paddle 推理模型
 * PaddleDetection 的导出脚本位于 PaddleDetection/tools/export_model.py
 
@@ -18,19 +11,25 @@
 
 * 作为演示，所以使用官方提供的 [PPYOLO tiny](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.3/configs/ppyolo/README_cn.md#pp-yolo-tiny%E6%A8%A1%E5%9E%8B) 预训练模型进行导出，具体步骤如下：
 
-1. 切换工作目录
+1. 克隆 PaddleDetection 代码
+
+    ```bash
+    $ git clone https://github.com/PaddlePaddle/PaddleDetection --depth 1
+    ```
+
+2. 切换工作目录
 
     ```bash
     $ cd ./PaddleDetection
     ```
 
-2. 安装依赖
+3. 安装依赖
 
     ```bash
     $ pip install -r requirements.txt
     ```
 
-3. 导出 Paddle 格式的推理模型
+4. 导出 Paddle 格式的推理模型
 
     ```bash
     # 使用脚本时通过命令行参数指定模型的配置文件、预训练模型、保存目录和当前运行的设备类型

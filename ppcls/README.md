@@ -4,13 +4,6 @@
 ## 1. 介绍
 * 本教程将介绍如何使用 PaddleClas 套件导出推理模型并使用 WebAI.js 部署到网页前端
 
-## 2. 同步代码
-* 克隆 PaddleClas 代码
-
-    ```bash
-    $ git clone https://github.com/PaddlePaddle/PaddleClas --depth 1
-    ```
-
 ## 2. 导出 Paddle 推理模型
 * PaddleClas 的导出脚本位于 PaddleClas/tools/export_model.py
 
@@ -18,19 +11,25 @@
 
 * 作为演示，所以使用官方文档中提供的示例模型进行模型导出，具体步骤如下：
 
-1. 切换工作目录
+1. 克隆 PaddleClas 代码
+
+    ```bash
+    $ git clone https://github.com/PaddlePaddle/PaddleClas --depth 1
+    ```
+
+2. 切换工作目录
 
     ```bash
     $ cd ./PaddleClas
     ```
 
-2. 下载官方提供的 ResNet50 预训练模型
+3. 下载官方提供的 ResNet50 预训练模型
 
     ```bash
     $ wget -P ./cls_pretrain/ https://paddle-imagenet-models-name.bj.bcebos.com/dygraph/legendary_models/ResNet50_vd_pretrained.pdparams
     ```
 
-3. 导出 Paddle 格式的推理模型
+4. 导出 Paddle 格式的推理模型
 
     ```bash
     # 使用脚本时通过命令行参数指定模型的配置文件、预训练模型、保存目录和当前运行的设备类型
