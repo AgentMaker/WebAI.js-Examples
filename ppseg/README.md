@@ -65,8 +65,6 @@
 
 ## 4. 生成配置文件
 
-## 4. 生成配置文件
-
 1. 使用配置文件转换器
 
     * [WebAI 的体验网站](https://agentmaker.github.io/WebAI.js) 中包含一个配置文件转换生成器
