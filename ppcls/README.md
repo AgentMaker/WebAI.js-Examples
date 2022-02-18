@@ -167,11 +167,48 @@
 
 2. 切换至示例目录：
 
-    ```
+    ```bash
     $ cd ./ppcls
     ```
 
-3. 在代码中修改模型路径:
+3. 目录结构：
+
+    ```yaml
+    - public # 服务器公开目录
+      - pplcnet_x0_25_imagenet # 模型文件目录
+        - configs.json # 配置文件
+        - model.onnx # 模型文件
+    - index.html # 网页
+    - main.js # 功能代码
+    - package.json # 项目配置文件
+    ```
+
+4. 项目详情：
+    * 网页中包含如下几个简单组件：
+
+        * 图像上传按钮：用于上传图像
+
+        * 图像：用于显示图像
+
+        * 结果文本区域：用于显示结果文本
+
+        * 功能代码：用于实现功能
+
+    * 网页功能：
+
+        1. 加载图像分类模型
+
+        2. 对上传的图像进行分类
+
+        3. 将结果概率文本输出显示至网页中
+
+    * 网页预览：
+
+        ![](https://ai-studio-static-online.cdn.bcebos.com/28ebc6e10251406aa8a0cc5440a6b7c09eb42501bc994f69a5b4f86f103762c5)
+    
+    * 更多详情请参考代码实现：[index.html](index.html) / [main.js](main.js)
+
+5. 在代码中修改模型路径（如果需要）:
 
     ```js
     // main.js
@@ -183,13 +220,13 @@
     ...
     ```
 
-4. 安装依赖:
+6. 安装依赖:
 
     ```bash
     $ npm install
     ```
 
-5. 开发网页:
+7. 开发网页:
 
     ```bash
     $ npm run dev
@@ -197,13 +234,13 @@
     # 通过浏览器访问 http://localhost:3000 来查看和测试网页
     ```
 
-6. 构建网页:
+8. 构建网页:
 
     ```bash
     $ npm run build
     ```
 
-7. 预览构建完成的网页:
+9. 预览构建完成的网页:
 
     ```bash
     $ npm run preview
@@ -211,13 +248,13 @@
     # 通过浏览器访问 http://localhost:5000 来预览构建完成的网页
     ```
 
-8. 构建网页至 '../docs' 目录中:
+10. 构建网页至 '../docs' 目录中:
 
     ```bash
     $ npm run build:docs
     ```
 
-9. 部署网页至 Github/Gitee Page:
+11. 部署网页至 Github/Gitee Page:
 
     1. fork 这个项目
 
